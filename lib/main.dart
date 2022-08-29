@@ -11,6 +11,20 @@ class MyApp extends StatelessWidget {
     player.play("note$soundNum.wav");
   }
 
+  Expanded buildkey({Color color, int soundNumber}) {
+    return Expanded(
+      child: InkWell(
+        onTap: () {
+          playSound(soundNumber);
+        },
+        child: Container(
+          //height: 20.0,
+          color: color,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,83 +34,13 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    playSound(1);
-                  },
-                  child: Container(
-                    height: 20.0,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    playSound(2);
-                  },
-                  child: Container(
-                    height: 20.0,
-                    color: Colors.orange,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    playSound(3);
-                  },
-                  child: Container(
-                    height: 20.0,
-                    color: Colors.yellow,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    playSound(4);
-                  },
-                  child: Container(
-                    height: 20.0,
-                    color: Colors.teal,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    playSound(5);
-                  },
-                  child: Container(
-                    height: 20.0,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    playSound(6);
-                  },
-                  child: Container(
-                    height: 20.0,
-                    color: Colors.purple,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    playSound(7);
-                  },
-                  child: Container(
-                    height: 20.0,
-                    color: Colors.green,
-                  ),
-                ),
-              ),
+              buildkey(color: Colors.red, soundNumber: 1),
+              buildkey(color: Colors.orange, soundNumber: 2),
+              buildkey(color: Colors.yellow, soundNumber: 3),
+              buildkey(color: Colors.green, soundNumber: 4),
+              buildkey(color: Colors.teal, soundNumber: 5),
+              buildkey(color: Colors.blue, soundNumber: 6),
+              buildkey(color: Colors.purple, soundNumber: 7),
             ],
           ),
         ),
